@@ -5,14 +5,17 @@ import java.util.Map;
 
 public class KeyValueSwapper {
     public Map<String, Integer> swap(Map<Integer, String> sourceMap) {
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> swappedMap = new HashMap<>();
+
         for (Map.Entry<Integer, String> entry : sourceMap.entrySet()) {
             String value = entry.getValue();
             Integer key = entry.getKey();
-            if(!map.containsKey(value)||map.get(value)>key){
-                map.put(value, key);
+
+            if (!swappedMap.containsKey(value) || swappedMap.get(value) > key) {
+                swappedMap.put(value, key);
             }
         }
-        return map;
+
+        return swappedMap;
     }
 }
