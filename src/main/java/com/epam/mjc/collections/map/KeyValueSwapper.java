@@ -7,11 +7,10 @@ public class KeyValueSwapper {
     public Map<String, Integer> swap(Map<Integer, String> sourceMap) {
         Map<String, Integer> map = new HashMap<>();
         for (Map.Entry<Integer, String> entry : sourceMap.entrySet()) {
-            if (map.containsKey(entry.getValue())) {
-                Integer value = entry.getKey() < map.get(entry.getValue()) ? entry.getKey() : map.get(entry.getValue());
-                map.put(entry.getValue(), value);
-            } else {
-                map.put(entry.getValue(), entry.getKey());
+            String value = entry.getValue();
+            Integer key = entry.getKey();
+            if(!map.containsKey(value)||map.get(value)>key){
+                map.put(value, key);
             }
         }
         return map;
